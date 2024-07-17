@@ -22,7 +22,7 @@ export const Assessment2 = () => {
   const [answer, setAnswer] = useState<any>(null);
   const [start, setStart] = useState(true);
   const [data, setData] = useState<any>(null);
-  const [nextCounter, setNextCounter] = useState(17);
+  const [nextCounter, setNextCounter] = useState(0);
   const [trueIndices, setTrueIndices] = useState<number[]>([]);
   const [valueSilder, setValueSlider] = useState<number | number[]>(5);
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ export const Assessment2 = () => {
   }
 
   const setAnswerBackendOptions = () => {
-    axios.put(`http://localhost:5000/api/v1/assessments/save`, {
+    axios.put(`https://assessment-back.onrender.com/api/v1/assessments/save`, {
       questionId: data.id,
       assessmentId: data.assessment,
       multiplechoice: true,
@@ -73,7 +73,7 @@ export const Assessment2 = () => {
   };
 
   const setAnswerBackendNumber = () => {
-    axios.put(`http://localhost:5000/api/v1/assessments/save`, {
+    axios.put(`https://assessment-back.onrender.com/api/v1/assessments/save`, {
       questionId: data.id,
       assessmentId: data.assessment,
       questionValue: valueSilder,
@@ -82,7 +82,7 @@ export const Assessment2 = () => {
   };
 
   const setAnswerBackendText = () => {
-    axios.put(`http://localhost:5000/api/v1/assessments/save`, {
+    axios.put(`https://assessment-back.onrender.com/api/v1/assessments/save`, {
       questionId: data.id,
       assessmentId: data.assessment,
       questionText: answer,
@@ -90,10 +90,12 @@ export const Assessment2 = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/v1/assessments/questions/2/${nextCounter}`).then((response) => {
-      setData(response.data);
-      setIsLoading(false);
-    });
+    axios
+      .get(`https://assessment-back.onrender.com/api/v1/assessments/questions/step/2/${nextCounter}`)
+      .then((response) => {
+        setData(response.data[0]);
+        setIsLoading(false);
+      });
   }, [nextCounter]);
 
   useEffect(() => {
@@ -144,7 +146,7 @@ export const Assessment2 = () => {
               fontFamily: 'Helvetica',
             }}
           >
-            {data?.question}
+            {data?.questionText}
           </Typography>
         </Box>
         <Box sx={{ display: start ? 'none' : 'flex flex-column' }}>
@@ -158,7 +160,7 @@ export const Assessment2 = () => {
                 fontFamily: 'Helvetica',
               }}
             >
-              {data?.question}
+              {data?.questionText}
             </Typography>
           </Box>
           <Box
