@@ -52,7 +52,7 @@ export const DashboardView = () => {
   }
 
   const setAnswerBackend = () => {
-    axios.put(`http://localhost:5000/api/v1/assessments/save`, {
+    axios.put(`https://assessment-back.onrender.com/api/v1/assessments/save`, {
       questionId: data.id,
       assessmentId: data.assessment,
       questionText: answer,
@@ -60,10 +60,12 @@ export const DashboardView = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/v1/assessments/questions/1/${nextCounter}`).then((response) => {
-      setData(response.data);
-      setIsLoading(false);
-    });
+    axios
+      .get(`https://assessment-back.onrender.com/api/v1/assessments/questions/step/1/${nextCounter}`)
+      .then((response) => {
+        setData(response.data[0]);
+        setIsLoading(false);
+      });
   }, [nextCounter]);
 
   // useEffect(() => {
@@ -122,7 +124,7 @@ export const DashboardView = () => {
                   fontFamily: 'Helvetica',
                 }}
               >
-                {data?.question}
+                {data?.questionText}
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2 }}>
@@ -153,7 +155,7 @@ export const DashboardView = () => {
                       flexGrow: 1,
                     }}
                   >
-                    {data?.options[index]}
+                    {data?.options[index] || 'Option'} {index + 1}
                   </Typography>
                 </Box>
               ))}
