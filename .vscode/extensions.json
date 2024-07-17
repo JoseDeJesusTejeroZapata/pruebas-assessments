@@ -1,0 +1,26 @@
+{
+    "recommendations": [
+      "gamunu.vscode-yarn",
+      "mikehanson.auto-barrel",
+      "xabikos.javascriptsnippets",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "kisstkondoros.vscode-codemetrics",
+      "quicktype.quicktype",
+      "streetsidesoftware.code-spell-checker",
+      "editorconfig.editorconfig",
+      "usernamehw.errorlens",
+      "aaron-bond.better-comments",
+      "yzhang.markdown-all-in-one",
+      "davidanson.vscode-markdownlint",
+      "chakrounanas.turbo-console-log",
+      "codeium.codeium",
+      "wix.vscode-import-cost",
+      "yoavbls.pretty-ts-errors",
+      "meganrogge.template-string-converter",
+      "gruntfuggly.todo-tree",
+      "shardulm94.trailing-spaces"
+    ]
+  }
+  

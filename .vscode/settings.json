@@ -1,0 +1,19 @@
+{
+   "editor.formatOnPaste": true,
+   "editor.formatOnSave": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+   "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.stylelint": "explicit",
+      "source.organizeImports": "explicit"
+   },
+   "editor.formatOnType": true,
+   "editor.insertSpaces": false,
+   "eslint.format.enable": true,
+   "javascript.suggest.paths": false,
+   "typescript.suggest.paths": true,
+   "typescript.updateImportsOnFileMove.enabled": "always",
+   "javascript.updateImportsOnFileMove.enabled": "always"
+}
